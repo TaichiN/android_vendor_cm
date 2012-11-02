@@ -169,7 +169,8 @@ PRODUCT_PACKAGES += \
     libcyanogen-dsp \
     audio_effects.conf \
     CMWallpapers \
-    Apollo
+    Apollo \
+    CMFileManager
 
 ifneq ($(CM_BUILDTYPE),UNOFFICIAL)
 PRODUCT_PACKAGES += \
