@@ -222,3 +222,6 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.cm.version=$(CM_VERSION) \
   ro.modversion=$(MODVERSION)
+
+
+-include $(WORKSPACE)/hudson/image-auto-bits.mk
