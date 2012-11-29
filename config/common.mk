@@ -146,8 +146,12 @@ PRODUCT_PACKAGES += \
     audio_effects.conf \
     CMWallpapers \
     Apollo \
-    CMUpdater \
     CMFileManager
+
+ifneq ($(CM_BUILDTYPE),UNOFFICIAL)
+PRODUCT_PACKAGES += \
+    CMUpdater
+endif
 
 # Extra tools in CM
 PRODUCT_PACKAGES += \
@@ -204,18 +208,19 @@ ifdef CM_BUILDTYPE
 else
     # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
     CM_BUILDTYPE := UNOFFICIAL
-    CM_EXTRAVERSION :=
+    CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
 endif
 
 ifdef CM_RELEASE
     CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(CM_BUILD)
+    MODVERSION := CyanogenMod-$(CM_VERSION)
 else
     CM_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)-$(CM_BUILD)$(CM_EXTRAVERSION)
+    MODVERSION := CyanogenMod-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)-$(PRODUCT_RELEASE_NAME)$(CM_EXTRAVERSION)
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.cm.version=$(CM_VERSION) \
-  ro.modversion=$(CM_VERSION)
-
+  ro.modversion=$(MODVERSION)
 
 -include $(WORKSPACE)/hudson/image-auto-bits.mk
