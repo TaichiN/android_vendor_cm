@@ -74,7 +74,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
     vendor/cm/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/cm/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh
+    vendor/cm/prebuilt/common/bin/50-cm.sh:system/addon.d/50-cm.sh \
+    vendor/cm/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # init.d support
 PRODUCT_COPY_FILES += \
@@ -94,10 +95,7 @@ PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/bin/compcache:system/bin/compcache \
     vendor/cm/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
-# Nam configuration script
-PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh
-
+# Terminal Emulator
 PRODUCT_COPY_FILES +=  \
     vendor/cm/proprietary/Term.apk:system/app/Term.apk \
     vendor/cm/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so
@@ -127,7 +125,6 @@ PRODUCT_PACKAGES += \
     Camera \
     Development \
     LatinIME \
-    SpareParts \
     Superuser \
     su
 
@@ -146,7 +143,8 @@ PRODUCT_PACKAGES += \
     audio_effects.conf \
     CMWallpapers \
     Apollo \
-    CMFileManager
+    CMFileManager \
+    LockClock
 
 ifneq ($(CM_BUILDTYPE),UNOFFICIAL)
 PRODUCT_PACKAGES += \
