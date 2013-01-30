@@ -31,9 +31,10 @@ if [ ! -f "$OTAPACKAGE" ]; then
 fi
 
 # Determine what to name the new package
-MODVERSION=`sed -n -e'/ro\.cm\.version/s/^.*=//p' $OUT/system/build.prop`
+MODVERSION=`sed -n -e'/ro\.modversion/s/^.*=//p' $OUT/system/build.prop`
+MODVERSION=`echo $MODVERSION | sed -r 's/CyanogenMod-//'`
 echo -e $CL_CYN"MODVERSION: $MODVERSION"$CL_RST
-OUTFILE=$OUT/cm-$MODVERSION.zip
+OUTFILE=$OUT/CM$MODVERSION.zip
 
 ln -f $OTAPACKAGE $OUTFILE
 

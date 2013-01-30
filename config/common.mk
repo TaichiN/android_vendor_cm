@@ -146,11 +146,6 @@ PRODUCT_PACKAGES += \
     CMFileManager \
     LockClock
 
-ifneq ($(CM_BUILDTYPE),UNOFFICIAL)
-PRODUCT_PACKAGES += \
-    CMUpdater
-endif
-
 # Extra tools in CM
 PRODUCT_PACKAGES += \
     openvpn \
@@ -207,6 +202,11 @@ else
     # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
     CM_BUILDTYPE := UNOFFICIAL
     CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
+endif
+
+ifneq ($(CM_BUILDTYPE),UNOFFICIAL)
+PRODUCT_PACKAGES += \
+    CMUpdater
 endif
 
 ifdef CM_RELEASE
