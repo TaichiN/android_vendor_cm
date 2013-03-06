@@ -153,6 +153,7 @@ PRODUCT_PACKAGES += \
     audio_effects.conf \
     CMWallpapers \
     Apollo \
+    CMUpdater \
     CMFileManager \
     LockClock
 
@@ -212,11 +213,6 @@ else
     # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
     CM_BUILDTYPE := UNOFFICIAL
     CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
-endif
-
-ifneq ($(CM_BUILDTYPE),UNOFFICIAL)
-PRODUCT_PACKAGES += \
-    CMUpdater
 endif
 
 ifdef CM_RELEASE
