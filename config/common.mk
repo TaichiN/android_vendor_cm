@@ -201,6 +201,9 @@ endif
 ifdef CM_RELEASE
     CM_BUILDTYPE := RELEASE
 endif
+ifdef CM_SKANK
+    CM_BUILDTYPE := SKANKY
+endif
 
 ifdef CM_BUILDTYPE
     ifdef CM_EXTRAVERSION
@@ -217,19 +220,16 @@ endif
 
 ifdef CM_RELEASE
     CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(CM_BUILD)
-    MODVERSION := CyanogenMod-$(CM_VERSION)
 else
     ifeq ($(PRODUCT_VERSION_MINOR),0)
         CM_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)-$(CM_BUILD)$(CM_EXTRAVERSION)
-        MODVERSION := CyanogenMod-$(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)-$(PRODUCT_RELEASE_NAME)$(CM_EXTRAVERSION)
     else
         CM_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)-$(CM_BUILD)$(CM_EXTRAVERSION)
-        MODVERSION := CyanogenMod-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(CM_BUILDTYPE)-$(PRODUCT_RELEASE_NAME)$(CM_EXTRAVERSION)
     endif
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.cm.version=$(CM_VERSION) \
-  ro.modversion=$(MODVERSION)
+  ro.modversion=$(CM_VERSION)
 
 -include $(WORKSPACE)/hudson/image-auto-bits.mk
