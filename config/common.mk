@@ -220,7 +220,7 @@ ifdef CM_BUILDTYPE
 else
     # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
     CM_BUILDTYPE := UNOFFICIAL
-    CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
+    CM_EXTRAVERSION :=
 endif
 
 ifdef CM_RELEASE
