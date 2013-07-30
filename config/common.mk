@@ -217,11 +217,12 @@ endif
 ifdef CM_RELEASE
     CM_BUILDTYPE := RELEASE
 endif
+ifdef CM_SKANK
+    CM_BUILDTYPE := SKANKY
+endif
 
 ifdef CM_BUILDTYPE
     ifdef CM_EXTRAVERSION
-        # Force build type to EXPERIMENTAL
-        CM_BUILDTYPE := EXPERIMENTAL
         # Remove leading dash from CM_EXTRAVERSION
         CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
         # Add leading dash to CM_EXTRAVERSION
