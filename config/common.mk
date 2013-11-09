@@ -292,7 +292,10 @@ endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.cm.version=$(CM_VERSION) \
-  ro.modversion=$(CM_VERSION)
+  ro.modversion=$(CM_VERSION) \
+  ro.goo.developerid=Euroskank \
+  ro.goo.rom=kitkang \
+  ro.goo.version=$(shell date +%s)
 
 -include vendor/cm-priv/keys/keys.mk
 
