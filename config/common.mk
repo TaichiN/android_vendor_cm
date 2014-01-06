@@ -60,7 +60,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
+    ro.build.selinux=0 
+
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 # Enable ADB authentication
@@ -90,12 +91,17 @@ PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
 # SELinux filesystem labels
-PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
+#PRODUCT_COPY_FILES += \
+#    vendor/cm/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 
 # CM-specific init file
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/init.local.rc:root/init.cm.rc
+
+# Compcache/Zram support
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/common/bin/compcache:system/bin/compcache \
+    vendor/cm/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
@@ -107,8 +113,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # Enable wireless Xbox 360 controller support
-PRODUCT_COPY_FILES += \
-    frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
+#PRODUCT_COPY_FILES += \
+#    frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
 # This is CM!
 PRODUCT_COPY_FILES += \
@@ -139,13 +145,14 @@ PRODUCT_PACKAGES += \
     DSPManager \
     libcyanogen-dsp \
     audio_effects.conf \
-    CMWallpapers \
     Apollo \
     CMFileManager \
     LockClock \
     CMUpdater \
     CMFota \
-    CMAccount
+
+#CMAccount
+#CMWallpapers
 
 # CM Hardware Abstraction Framework
 PRODUCT_PACKAGES += \
@@ -218,7 +225,7 @@ endif
 # easy way to extend to add more packages
 -include vendor/extra/product.mk
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
+#PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/common
 
 PRODUCT_VERSION_MAJOR = 11
