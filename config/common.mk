@@ -232,13 +232,15 @@ ifndef CM_BUILDTYPE
 endif
 
 # Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL EUROSKANK,$(CM_BUILDTYPE)),)
+ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(CM_BUILDTYPE)),)
     CM_BUILDTYPE :=
 endif
 
 ifdef CM_BUILDTYPE
     ifneq ($(CM_BUILDTYPE), SNAPSHOT)
         ifdef CM_EXTRAVERSION
+            # Force build type to EXPERIMENTAL
+            CM_BUILDTYPE := EXPERIMENTAL
             # Remove leading dash from CM_EXTRAVERSION
             CM_EXTRAVERSION := $(shell echo $(CM_EXTRAVERSION) | sed 's/-//')
             # Add leading dash to CM_EXTRAVERSION
@@ -257,7 +259,7 @@ ifdef CM_BUILDTYPE
     endif
 else
     # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
-    CM_BUILDTYPE := UNOFFICIAL
+    CM_BUILDTYPE := SKANKY
     CM_EXTRAVERSION :=
 endif
 
