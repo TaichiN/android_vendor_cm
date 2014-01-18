@@ -17,12 +17,19 @@ PRODUCT_PACKAGES += \
     NoiseField \
     PhaseBeam \
     VisualizationWallpapers \
-    PhotoTable
+    PhotoTable \
+    VoiceDialer \
+    SoundRecorder
 
 #PRODUCT_PACKAGES += \
 #    VideoEditor \
-#   libvideoeditor_jni \
+#    libvideoeditor_jni \
 #    libvideoeditor_core \
 #    libvideoeditor_osal \
 #    libvideoeditor_videofilters \
 #    libvideoeditorplayer
+
+# Extra tools in CM
+PRODUCT_PACKAGES += \
+    vim
+
