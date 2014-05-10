@@ -30,6 +30,14 @@ PRODUCT_PACKAGES += \
 #    PhaseBeam \
 #    Galaxy4 \
 #    HoloSpiralWallpaper \
+
+# Stagefright FFMPEG plugin
+PRODUCT_PACKAGES += \
+    libstagefright_soft_ffmpegadec \
+    libstagefright_soft_ffmpegvdec \
+    libFFmpegExtractor \
+    libnamparser
+
 # Extra tools in CM
 #PRODUCT_PACKAGES += \
 #    vim
