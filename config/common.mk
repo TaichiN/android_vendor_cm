@@ -29,11 +29,11 @@ $(eval TARGET_BOOTANIMATION_NAME := $(shell \
 endef
 $(foreach size,$(bootanimation_sizes), $(call check_and_set_bootanimation,$(size)))
 
-ifeq ($(TARGET_BOOTANIMATION_HALF_RES),true)
+#ifeq ($(TARGET_BOOTANIMATION_HALF_RES),true)
 PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/halfres/$(TARGET_BOOTANIMATION_NAME).zip
-else
-PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip
-endif
+#else
+#PRODUCT_BOOTANIMATION := vendor/cm/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip
+#endif
 endif
 
 ifdef CM_NIGHTLY
@@ -64,7 +64,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=0 
+    ro.build.selinux=1
 
 
 # Thank you, please drive thru!
