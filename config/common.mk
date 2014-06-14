@@ -145,8 +145,8 @@ PRODUCT_PACKAGES += \
     LockClock \
     CMUpdater \
     CMFota \
+    CMAccount \
 
-#CMAccount
 #CMWallpapers
 
 # CM Hardware Abstraction Framework
