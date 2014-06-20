@@ -146,6 +146,7 @@ PRODUCT_PACKAGES += \
     CMUpdater \
     CMFota \
     CMAccount \
+    CMHome
 
 #CMWallpapers
 
