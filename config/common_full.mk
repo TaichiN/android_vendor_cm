@@ -16,7 +16,8 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     VisualizationWallpapers \
     PhotoTable \
-    SoundRecorder
+    SoundRecorder \
+    PhotoPhase
 
 #PRODUCT_PACKAGES += \
 #    VideoEditor \
