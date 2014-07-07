@@ -129,7 +129,6 @@ PRODUCT_PACKAGES += \
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
-    VoicePlus \
     Basic \
     libemoji
 
@@ -142,12 +141,13 @@ PRODUCT_PACKAGES += \
     audio_effects.conf \
     Apollo \
     CMFileManager \
-    LockClock \
     CMUpdater \
     CMFota \
     CMAccount \
     CMHome
 
+#VoicePlus
+#LockClock
 #CMWallpapers
 
 # CM Hardware Abstraction Framework
