@@ -149,7 +149,6 @@ PRODUCT_PACKAGES += \
     Apollo \
     CMFileManager \
     CMUpdater \
-    CMFota \
     CMAccount \
     CMHome
 
