@@ -10,13 +10,17 @@ BOARD_SEPOLICY_UNION += \
     file.te \
     file_contexts \
     genfs_contexts \
+    property_contexts \
     seapp_contexts \
     service_contexts \
     auditd.te \
     healthd.te \
+    hostapd.te \
     installd.te \
     netd.te \
+    property.te \
     recovery.te \
+    shell.te \
     su.te \
     sysinit.te \
     system.te \
