@@ -120,12 +120,13 @@ PRODUCT_PACKAGES += \
 # Custom CM packages
 PRODUCT_PACKAGES += \
     AudioFX \
-    CMFileManager \
     CMSettingsProvider \
     CMUpdater \
-    CyanogenSetupWizard \
+    CustomTiles \
+    LineageSetupWizard \
     Eleven \
     ExactCalculator \
+    Jelly \
     LiveLockScreenService \
     LockClock \
     Trebuchet \
